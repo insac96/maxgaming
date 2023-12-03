@@ -1,22 +1,26 @@
 <template>
-  <UCard v-if="statistic">
-    <div class="grid grid-cols-12 gap-4">
-      <UiFlex type="col" class="md:col-span-4 col-span-6">
-        <UiText weight="semibold" color="primary">Tiền mặt</UiText>
-        <UiText size="3xl">{{ useMoney().toMoney(statistic.cash) }}</UiText>
-      </UiFlex>
-
-      <UiFlex type="col" class="md:col-span-4 col-span-6">
-        <UiText weight="semibold" color="primary">Chuyển khoản</UiText>
+  <div class="grid grid-cols-12 gap-4" v-if="statistic">
+    <UCard class="md:col-span-4 col-span-6">
+      <UiFlex type="col">
+        <UiText weight="semibold" color="primary" size="sm" class="mb-2">Chuyển Khoản</UiText>
         <UiText size="3xl">{{ useMoney().toMoney(statistic.banking) }}</UiText>
       </UiFlex>
+    </UCard>
+  
+    <UCard class="md:col-span-4 col-span-6">
+      <UiFlex type="col">
+        <UiText weight="semibold" color="primary" size="sm" class="mb-2">Tiền Mặt</UiText>
+        <UiText size="3xl">{{ useMoney().toMoney(statistic.cash) }}</UiText>
+      </UiFlex>
+    </UCard>
 
-      <UiFlex type="col" class="md:col-span-4 col-span-12">
-        <UiText weight="semibold" color="primary">Tổng</UiText>
+    <UCard class="md:col-span-4 col-span-12">
+      <UiFlex type="col">
+        <UiText weight="semibold" color="primary" size="sm" class="mb-2">Tất Cả</UiText>
         <UiText size="3xl">{{ useMoney().toMoney(statistic.total) }}</UiText>
       </UiFlex>
-    </div>
-  </UCard>
+    </UCard>
+  </div>
 </template>
 
 <script setup>

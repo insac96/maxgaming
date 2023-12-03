@@ -5,8 +5,8 @@
 
     <UCard :ui="{ 
       body: { padding: 'p-0 sm:p-0' },
-      header: { padding: 'p-2 sm:p-2' },
-      footer: { padding: 'p-2 sm:p-2' },
+      header: { padding: 'p-3 sm:p-3' },
+      footer: { padding: 'p-3 sm:p-3' },
     }">
       <template #header>
         <UiFlex>

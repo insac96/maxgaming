@@ -1,50 +1,43 @@
 <template>
-  <div v-if="!loading">
+  <div v-if="!!workshift && !!receive && !!spend" class="mb-4">
     <UiFlex class="mb-4">
-      <UInput icon="i-bx-user" :model-value="profile.username" readonly class="mr-1"></UInput>
       <UInput icon="i-bx-time" :model-value="useDayJs().displayFull(workshift.start)" readonly></UInput>
-
-      <UButton color="red" class="ml-auto" @click="logout">Thoát Ca</UButton>
     </UiFlex>
 
-    <UCard>
-      <div class="grid grid-cols-12 gap-4">
-        <UiFlex type="col" class="md:col-span-4 col-span-6">
-          <UiText weight="semibold" color="primary">Thu</UiText>
+    <div class="grid grid-cols-12 gap-4">
+      <UCard class="md:col-span-4 col-span-6">
+        <UiFlex type="col">
+          <UiText weight="semibold" color="primary" size="sm" class="mb-2">Khoản Thu</UiText>
           <UiText size="3xl">{{ useMoney().toMoney(receive.total) }}</UiText>
         </UiFlex>
-
-        <UiFlex type="col" class="md:col-span-4 col-span-6">
-          <UiText weight="semibold" color="primary">Chi</UiText>
+      </UCard>
+    
+      <UCard class="md:col-span-4 col-span-6">
+        <UiFlex type="col">
+          <UiText weight="semibold" color="primary" size="sm" class="mb-2">Khoản Chi</UiText>
           <UiText size="3xl">{{ useMoney().toMoney(spend.total) }}</UiText>
         </UiFlex>
+      </UCard>
 
-        <UiFlex type="col" class="md:col-span-4 col-span-12">
-          <UiText weight="semibold" color="primary">Biến động</UiText>
+      <UCard class="md:col-span-4 col-span-12">
+        <UiFlex type="col">
+          <UiText weight="semibold" color="primary" size="sm" class="mb-2">Biến động</UiText>
           <UiText size="3xl">{{ useMoney().toMoney(receive.total - spend.total) }}</UiText>
         </UiFlex>
-      </div>
-    </UCard>
+      </UCard>
+    </div>
   </div>
+
+  <WorkshiftHistory></WorkshiftHistory>
 </template>
 
 <script setup>
 const { $API } = useNuxtApp()
-const { profile } = useAuthStore()
 
 const loading = ref(true)
 const workshift = ref(undefined)
 const receive = ref(undefined)
 const spend = ref(undefined)
-
-const logout = async () => {
-  try {
-    await userAPI($API.Auth.Logout)
-  }
-  catch(e) {
-    return true
-  }
-}
 
 const getWorkShift =  async () => {
   try {

@@ -17,7 +17,8 @@ export default defineNuxtPlugin(() => {
     },
 
     WorkShift: {
-      Auth: 'workshift/auth'
+      Auth: 'workshift/auth',
+      AuthHistory: 'workshift/authHistory'
     }
   }
 

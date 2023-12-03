@@ -1,35 +1,32 @@
 <template>
-  <UiFlex justify="center" class="relative bg-slate-50 dark:bg-gray-900 min-h-screen">
-    <UCard class="w-[450px]">
-      <template #header>
-        <UiText size="base" weight="semibold">Max Gaming</UiText>
-        <UiText size="sm" color="gray">Đăng nhập để bắt đầu ca làm việc</UiText>
-      </template>
-      
-      <UForm :state="state" :validate="validate" @submit="onLogin">
-        <UFormGroup label="Tài khoản" name="username">
-          <UInput icon="i-bxs-user" type="text" v-model="state.username" :disabled="!!loading" />
-        </UFormGroup>
+  <UCard class="w-[450px]">
+    <template #header>
+      <UiText size="base" weight="semibold">Max Gaming</UiText>
+      <UiText size="sm" color="gray">Đăng nhập để bắt đầu ca làm việc</UiText>
+    </template>
+    
+    <UForm :state="state" :validate="validate" @submit="onLogin">
+      <UFormGroup label="Tài khoản" name="username">
+        <UInput icon="i-bxs-user" type="text" v-model="state.username" :disabled="!!loading" />
+      </UFormGroup>
 
-        <UFormGroup label="Mật khẩu" name="password">
-          <UInput icon="i-bxs-lock" type="password" v-model="state.password" :disabled="!!loading" />
-        </UFormGroup>
+      <UFormGroup label="Mật khẩu" name="password">
+        <UInput icon="i-bxs-lock" type="password" v-model="state.password" :disabled="!!loading" />
+      </UFormGroup>
 
-        <UiFlex justify="end" class="mt-4">
-          <UButton type="submit" :loading="loading">Bắt Đầu</UButton>
-        </UiFlex>
-      </UForm>
-    </UCard>
-  </UiFlex>
+      <UiFlex justify="end" class="mt-4">
+        <UButton type="submit" :loading="loading">Bắt Đầu</UButton>
+      </UiFlex>
+    </UForm>
+  </UCard>
 </template>
 
 <script setup>
 definePageMeta({
-  layout: null
+  layout: 'login'
 })
 
 const { $API } = useNuxtApp()
-const { setAuth } = useAuthStore()
 
 const state = ref({
   username: null,

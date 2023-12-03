@@ -27,6 +27,8 @@ export default defineEventHandler(async (event) => {
     return res(event, { result: authStore })
   }
   catch(e:any){
+    const runtimeConfig = useRuntimeConfig()
+    deleteCookie(event, 'token-auth', runtimeConfig.COOKIE_CONFIG)
     return res(event, { code: 401, message: e.toString() })
   }
 })
