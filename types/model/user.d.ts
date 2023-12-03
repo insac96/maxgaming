@@ -1,4 +1,5 @@
 import type { Types } from 'mongoose'
+import type { IDBWorkShift } from './workshift'
 
 export interface IDBUser {
   _id: Types.ObjectId
@@ -8,31 +9,26 @@ export interface IDBUser {
   auth: {
     username: string
     password: string
-    social: {
-      facebook: string
-      zalo: string
-      google: string
-      tiktok: string
-    }
     type: number
-    block: boolean
   }
 
-  info: {
-    nickname: string
+  profile: {
+    name: string
     email: string
     phone: string
-    avatar: string
     address: string
-    social: {
-      facebook: string
-      zalo: string
-      google: string
-      tiktok: string
-    }
   }
+}
 
-  currency: {
-    diamond: number
+export interface IDBAuthStore {
+  profile: {
+    _id?: Types.ObjectId | null
+    username?: string | null
+    name?: string | null
+    type?: string | null
+  }
+  workshift: {
+    _id?: Types.ObjectId | null
+    start?: Date
   }
 }

@@ -27,8 +27,7 @@ export default defineNuxtConfig({
 
   modules: [
     '@pinia/nuxt', 
-    '@nuxt/ui', 
-    '@nuxt/image',
+    '@nuxt/ui',
     ['@nuxtjs/google-fonts', {
       display: 'swap',
       download: true,
@@ -44,14 +43,14 @@ export default defineNuxtConfig({
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1, interactive-widget=resizes-content',
     },
-    pageTransition: { name: 'page', mode: 'out-in' }
+    // pageTransition: { name: 'page', mode: 'out-in' }
   },
 
   css: [
     '@/app.css'
   ],
 
-  image: {
-    domains: [ process.env.DOMAIN as string ]
+  colorMode: {
+    preference: 'dark'
   },
 })
