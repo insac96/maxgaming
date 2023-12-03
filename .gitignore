@@ -1,0 +1,23 @@
+# Nuxt dev/build outputs
+.output
+.data
+.nuxt
+.nitro
+.cache
+dist/client
+dist/output
+
+# Node dependencies
+node_modules
+package-lock.json
+.env
+
+# Logs
+logs
+*.log
+
+# Misc
+.DS_Store
+.fleet
+.idea
+
