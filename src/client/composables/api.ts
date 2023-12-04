@@ -50,6 +50,11 @@ export const useAPI = async (path : string, post?: any, options: any = {}) => {
       navigateTo('/login')
       return Promise.reject(message)
     }
+    else if(code == 402) {
+      useAuthStore().setAdminAuth(false)
+      navigateTo('/login/admin')
+      return Promise.reject(message)
+    }
     else {
       return Promise.reject(message)
     }

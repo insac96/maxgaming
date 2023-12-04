@@ -33,6 +33,17 @@ export const DBUser = (mongoose : Mongoose) => {
         }
       })
     }
+
+    const admin = await model.count({ 'auth.username' : 'admin' })
+    if(admin == 0){
+      await model.create({
+        auth: {
+          username: 'admin',
+          password: md5('123123'),
+          type: 2
+        }
+      })
+    }
   }
   autoCreate()
 

@@ -1,24 +1,38 @@
 export default defineNuxtPlugin(() => {
   const API = {
     Auth: {
-      Get: 'auth/get',
-      Login: 'auth/login',
-      Logout: 'auth/logout',
+      Staff: {
+        Get: 'auth/staff/get',
+        Login: 'auth/staff/login',
+        Logout: 'auth/staff/logout',
+      },
+
+      Admin: {
+        Get: 'auth/admin/get',
+        Login: 'auth/admin/login',
+        Logout: 'auth/admin/logout',
+      }
     },
 
     Receive: {
-      GetOnWorkShift: 'receive/getOnWorkShift',
-      Add: 'receive/add'
+      Staff: {
+        GetOnWorkShift: 'receive/staff/getOnWorkShift',
+        Add: 'receive/staff/add'
+      }
     },
 
     Spend: {
-      GetOnWorkShift: 'spend/getOnWorkShift',
-      Add: 'spend/add'
+      Staff: {
+        GetOnWorkShift: 'spend/staff/getOnWorkShift',
+        Add: 'spend/staff/add'
+      }
     },
 
     WorkShift: {
-      Auth: 'workshift/auth',
-      AuthHistory: 'workshift/authHistory'
+      Staff: {
+        Auth: 'workshift/staff/auth',
+        AuthHistory: 'workshift/staff/authHistory'
+      }
     }
   }
 

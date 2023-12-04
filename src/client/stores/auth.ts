@@ -3,6 +3,7 @@ import type { IDBAuthStore } from '~~/types/model/user'
 
 export const useAuthStore = defineStore('auth', () => {
   const isLogin = ref(false)
+  const isAdminLogin = ref(false)
   const profile : Ref<IDBAuthStore['profile']> = ref({})
   const workshift : Ref<IDBAuthStore['workshift']> = ref({})
 
@@ -18,5 +19,12 @@ export const useAuthStore = defineStore('auth', () => {
     }
   }
 
-  return { isLogin, profile, setAuth }
+  function setAdminAuth (data : boolean) {
+    isAdminLogin.value = data
+  }
+
+  return { 
+    isLogin, profile, setAuth,
+    isAdminLogin, setAdminAuth
+  }
 })
