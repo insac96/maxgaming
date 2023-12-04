@@ -14,6 +14,13 @@ export default defineNuxtPlugin(() => {
       }
     },
 
+    User: {
+      Admin: {
+        AddStaff: 'user/admin/addStaff',
+        ListStaff: 'user/admin/listStaff'
+      }
+    },
+
     Receive: {
       Staff: {
         GetOnWorkShift: 'receive/staff/getOnWorkShift',
@@ -32,6 +39,9 @@ export default defineNuxtPlugin(() => {
       Staff: {
         Auth: 'workshift/staff/auth',
         AuthHistory: 'workshift/staff/authHistory'
+      },
+      Admin: {
+        List: 'workshift/admin/list'
       }
     }
   }

@@ -7,8 +7,8 @@
 <script setup>
 const menu = [[
   {
-    label: 'Tài khoản',
-    click: () => navigateTo('/admin/user')
+    label: 'Nhân viên',
+    click: () => navigateTo('/admin/staff')
   },
   {
     label: 'Ca làm viêc',

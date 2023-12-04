@@ -6,6 +6,8 @@ export const DBWorkShift = (mongoose : Mongoose) => {
     user: { type: mongoose.Schema.Types.ObjectId, ref: 'user', required: true },
     start: { type: Date, required: true },
     end: { type: Date }
+  },{
+    timestamps: true
   })
 
   const model = mongoose.model('workshift', schema, 'workshift')

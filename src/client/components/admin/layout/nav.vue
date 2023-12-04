@@ -7,8 +7,8 @@ const emit = defineEmits(['to'])
 
 const navItems = [
   {
-    label: 'Tài khoản',
-    to: '/admin/user'
+    label: 'Nhân viên',
+    to: '/admin/staff'
   },
   {
     label: 'Ca làm viêc',
